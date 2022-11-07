@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	int (*f)(va_list list);
 
 	va_start(list, format);
+	if (format == NULL)
+	  return (-1);
 	if (format)
 	{
 		for (i = 0; format[i] != '\0'; i++)
@@ -31,9 +33,6 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	else
-		return (-1);
-
 	va_end(list);
 	return (p);
 }

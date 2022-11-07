@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - prints given text and variables
@@ -23,12 +24,18 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				p++;
 			}
-			else if (format[i] == 37)
+			else if (format[i] == 37 && (format[i + 1] == 'i' ||
+					format[i + 1] == '%' ||
+				       	format[i + 1] == 'd' ||
+					format[i + 1] == 's' ||
+					format[i + 1] == 'c'))
 			{
 				f = get_pf_func(&format[i + 1]);
-				p = f(list);
+				p += f(list);
 				i++;
 			}
+			else
+				i++;
 		}
 	}
 	else

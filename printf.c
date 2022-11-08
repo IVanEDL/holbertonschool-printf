@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _printf - prints given text and variables
@@ -13,10 +12,9 @@ int _printf(const char *format, ...)
 	int i, p = 0;
 	va_list list;
 	int (*f)(va_list list);
+	char *aux = "cisd%";
 
 	va_start(list, format);
-	if (format == NULL)
-	  return (-1);
 	if (format)
 	{
 		for (i = 0; format[i] != '\0'; i++)
@@ -26,18 +24,22 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				p++;
 			}
-			else if (format[i] == 37 && (format[i + 1] == 'i' ||
-					format[i + 1] == '%' ||
-				       	format[i + 1] == 'd' ||
-					format[i + 1] == 's' ||
-					format[i + 1] == 'c'))
+			else if (format[i] == 37)
 			{
-				f = get_pf_func(&format[i + 1]);
-				p += f(list);
-				i++;
+				if (_strcmp(aux, format[i + 1]) >= 0)
+				{
+					f = get_pf_func(&format[i + 1]);
+					p += f(list);
+					i++;
+				}
+				else if (format[i + 1] == 00)
+					return (-1);
+				else
+				{
+					write(1, &format[i], 1);
+					p++;
+				}
 			}
-			else
-				i++;
 		}
 	}
 	va_end(list);

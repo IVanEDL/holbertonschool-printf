@@ -14,6 +14,7 @@ int print_char(va_list list);
 int print_string(va_list list);
 int print_per(va_list list __attribute__((unused)));
 int print_integer(va_list list);
+int _strcmp(char *s1, char ch);
 
 /**
  * struct pf - Struct pf

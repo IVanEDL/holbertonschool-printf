@@ -7,13 +7,14 @@
  * Return: int
  */
 
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *s1, char ch)
 {
-	int num = 0;
+	int i;
 
-	while (s1[num] - s2[num] == 0 && s1[num] != '\0')
+	for (i = 0; s1[i] != '\0'; i++)
 	{
-		num++;
+		if (s1[i] == ch)
+			return (i);
 	}
-	return (s1[num] - s2[num]);
+	return (-1);
 }

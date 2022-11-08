@@ -4,7 +4,7 @@
  * _strcmp - compares two strings
  * @s1: string 1
  * @ch: entry char to compare
- * Return: int
+ * Return: ubication in the string of the compared char
  */
 
 int _strcmp(char *s1, char ch)

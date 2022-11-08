@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+#include <limits.h>
 
 /**
  * main - Entry point
@@ -9,10 +10,10 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len = 0, len2 = 0;
 
-	len = _printf("css%ccs%scscscs\n", 'T', "Test");
-	len2 = printf("css%ccs%scscscs\n", 'T', "Test");
+	len = _printf("%d\n", INT_MIN);
+	len2 = printf("%d\n", INT_MIN);
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -20,38 +21,10 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-
-	len = _printf("%");
-	len2 = printf("%");
+	
+	len = _printf("There is %d bytes in %d KB\n", 1024, 1);
+	len2 = printf("There is %d bytes in %d KB\n", 1024, 1);
 	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%K\n");
-	len2 = printf("%K\n");
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf("%!\n");
-	len2 = printf("%!\n");
-	fflush(stdout);
-	if (len != len2)
-	{
-		printf("Lengths differ.\n");
-		fflush(stdout);
-		return (1);
-	}
-	len = _printf(NULL);
-	len2 = printf(NULL);
-	fflush(stdout);
-	printf("%d, %d", len, len2);
 	if (len != len2)
 	{
 		printf("Lengths differ.\n");

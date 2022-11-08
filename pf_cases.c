@@ -59,7 +59,7 @@ int print_per(va_list list __attribute__((unused)))
 int print_integer(va_list list)
 {
 	char aux[64];
-	int a = va_arg(list, int);
+	long int a = va_arg(list, int);
 	int p = 0, i = 63;
 
 	if (a < 0)
@@ -67,15 +67,24 @@ int print_integer(va_list list)
 		_putchar('-');
 		p++;
 		a = -a;
+		if (a >= 2147843600)
+		{
+			a += 48;
+		}
 	}
 	aux[64] = '\0';
+	if (a == 0)
+	{
+		_putchar(a + '0');
+		p++;
+	}
 	for (; a != 0; i--)
 	{
 		aux[i] = a % 10;
 		a = a / 10;
 	}
 	i++;
-	for (; aux[i] != '\0'; i++)
+	for (; i < 64; i++)
 	{
 		_putchar(aux[i] + '0');
 		p++;

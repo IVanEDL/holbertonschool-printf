@@ -24,5 +24,5 @@ int (*get_pf_func(const char *s))(va_list list)
 			return (op[i].f);
 		i++;
 	}
-	return (0);
+	return (op[i].f);
 }

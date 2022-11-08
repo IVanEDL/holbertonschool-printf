@@ -27,6 +27,8 @@ int print_string(va_list list)
 	char *a;
 
 	a = va_arg(list, char *);
+	if (a == 00)
+		a = "(null)";
 	for (; a[x] != '\0'; x++)
 	{
 		c = a[x];

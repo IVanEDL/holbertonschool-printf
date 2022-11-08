@@ -32,16 +32,18 @@ int _printf(const char *format, ...)
 					p += f(list);
 					i++;
 				}
-				else if (format[i + 1] == 00)
-					return (-1);
-				else
+				else if (format[1] != '\0')
 				{
 					write(1, &format[i], 1);
 					p++;
 				}
+				else
+					return (-1);
 			}
 		}
 	}
 	va_end(list);
+	if (p == 0)
+		return (-1);
 	return (p);
 }

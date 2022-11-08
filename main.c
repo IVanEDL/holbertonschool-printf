@@ -48,6 +48,16 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
+	len = _printf(NULL);
+	len2 = printf(NULL);
+	fflush(stdout);
+	printf("%d, %d", len, len2);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 
 	return (0);
 }

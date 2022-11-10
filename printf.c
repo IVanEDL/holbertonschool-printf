@@ -15,24 +15,26 @@ int _printf(const char *format, ...)
 	char *aux = "cisd%";
 
 	va_start(list, format);
-	if (format)
+	if (format) /*Checks if format is actually something*/
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
-			if (format[i] != 37)
+			if (format[i] != 37) /*If it isnt a %...*/
 			{
-				write(1, &format[i], 1);
+				write(1, &format[i], 1); /*Writes a character*/
 				p++;
 			}
-			else if (format[i] == 37)
+			else if (format[i] == 37) /*But if it is...*/
 			{
 				if (_strcmp(aux, format[i + 1]) >= 0)
+				/*Checks if the next character is compatible*/
 				{
 					f = get_pf_func(&format[i + 1]);
 					p += f(list);
 					i++;
+				/* And executes a corresponding function */
 				}
-				else if (format[1] != '\0')
+				else if (format[i + 1] != '\0')
 				{
 					write(1, &format[i], 1);
 					p++;
@@ -44,6 +46,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	if (p == 0)
-		return (-1);
+		return (-1); /*Returns -1 if the character counter didn't count anything*/
 	return (p);
 }

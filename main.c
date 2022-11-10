@@ -21,7 +21,7 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	
+
 	len = _printf("There is %d bytes in %d KB\n", 1024, 1);
 	len2 = printf("There is %d bytes in %d KB\n", 1024, 1);
 	fflush(stdout);

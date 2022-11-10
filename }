@@ -70,8 +70,7 @@ int print_integer(va_list list)
 		if (a >= 2147843600)
 		{
 			a += 48;
-			/**
-			 * This is a bit unintuitive. Being fast and easy to
+			/** This is a bit unintuitive. Being fast and easy to
 			 * understand, this checks for INT_MIN and returns the
 			 * intended integer, because it breaks if its passed to
 			 * positive, being away from the int limit.

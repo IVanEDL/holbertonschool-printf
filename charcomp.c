@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strcmp - compares two strings
+ * _strcmp - an entry char to a given string.
  * @s1: string 1
  * @ch: entry char to compare
  * Return: ubication in the string of the compared char

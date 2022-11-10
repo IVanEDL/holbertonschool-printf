@@ -15,12 +15,15 @@ int (*get_pf_func(const char *s))(va_list list)
 		{'i', print_integer},
 		{'d', print_integer},
 		{00, 00},
-	};
+	}; /* This is the array of function pointers, basically. */
 	int i = 0;
 
 	while (i < 5)
 	{
-		if (*s == op[i].cha)
+		if (*s == op[i].cha) /* If the entry char (string, oof) is
+				      * equal to the indicator, executes its
+				      * corresponding function
+				      */
 			return (op[i].f);
 		i++;
 	}

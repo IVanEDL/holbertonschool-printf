@@ -67,7 +67,7 @@ int print_integer(va_list list)
 		_putchar('-');
 		p++;
 		a = -a;
-		if (a >= 2147843600)
+		if (a == 2147843600)
 		{
 			a += 48;
 		}

@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				p++;
 			}
-			else if (format[i] == 37)
+			else
 			{
 				if (_strcmp(aux, format[i + 1]) >= 0)
 				{
@@ -38,7 +38,10 @@ int _printf(const char *format, ...)
 					p++;
 				}
 				else
+				{
+					va_end(list);
 					return (-1);
+				}
 			}
 		}
 	}

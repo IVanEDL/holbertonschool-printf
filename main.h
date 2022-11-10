@@ -1,5 +1,5 @@
-#ifndef main_h
-#define main_h
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <unistd.h>
 #include <stdio.h>
@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 int _printf(const char *format, ...);
-int _strlenpf(char *s);
 int _putchar(char c);
 int (*get_pf_func(const char *s))(va_list list);
 int print_char(va_list list);
